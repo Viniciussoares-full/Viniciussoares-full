@@ -26,3 +26,13 @@ jobs:
           if git commit -m "generated"; then
             git push
           fi
+          env:
+-           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
++           GITHUB_TOKEN: ${{ secrets.MY_PERSONAL_ACCESS_TOKEN }}
+            USERNAME: ${{ github.repository_owner }}
+
+            on:
+  schedule: # 03:00 JST == 18:00 UTC
+    - cron: "0 18 * * *"
+
+    
